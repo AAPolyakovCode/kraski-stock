@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Красок</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; color: white; margin: 0; padding: 20px; }
+        .slide-container { max-width: 1280px; margin: 0 auto; background-color: #2a2a2a; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h1 { margin: 0; color: #4db8ff; font-size: 3em; }
+        .header p { color: #aaaaaa; margin-bottom: 30px; }
+        .search-box { text-align: center; margin-bottom: 40px; }
+        .search-box input { width: 100%; max-width: 600px; padding: 15px 25px; font-size: 1.2em; border-radius: 30px; border: none; background-color: #444; color: white; outline: none; box-shadow: inset 0 2px 5px rgba(0,0,0,0.3); }
+        .search-box input::placeholder { color: #999; }
+        .products-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .product-card { background-color: #333; border-radius: 10px; padding: 20px; width: 300px; text-align: center; border: 1px solid #444; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .product-image { height: 140px; margin-bottom: 15px; background-color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        
+        /* Шильдики для баз разных цветов */
+        .base-badge { position: absolute; top: 10px; right: 10px; color: #000; padding: 4px 10px; font-weight: bold; border-radius: 5px; font-size: 0.9em; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .base-a { background-color: #4db8ff; } /* Синий для Базы А */
+        .base-c { background-color: #ff9800; } /* Оранжевый для Базы С */
+        .base-other { background-color: #e91e63; } /* Розовый для остальных баз */
+
+        .product-card h3 { margin-top: 0; color: #fff; font-size: 1.1em; min-height: 45px; }
+        .volume { font-size: 0.9em; color: #b3b3b3; margin-bottom: 10px; }
+        .price { font-size: 1.5em; color: #ffb84d; font-weight: bold; margin: 10px 0; min-height: 28px; }
+        .label-text { font-size: 0.6em; color: #999; font-weight: normal; margin-right: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .stock { font-size: 1.2em; font-weight: bold; }
+        .brand { font-size: 0.9em; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .in-stock { color: #deff9a; }
+        .out-of-stock { color: #ff6b6b; }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <h1>Актуальные остатки</h1>
+            <p>Последнее обновление: <span>25.09.2026 14:12</span></p>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Поиск по названию, артикулу или базе...">
+        </div>
+        <div class="products-grid" id="grid">
+            
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1300000801.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1300000801</div>
+        <h3>Pro Primer
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 1.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 306,01 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 116 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1300000805.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1300000805</div>
+        <h3>Pro Primer
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 5.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 293,20 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 20 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1300000810.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1300000810</div>
+        <h3>Pro Primer
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 10.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 350,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 14 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1301010001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1301010001</div>
+        <h3>Interior Ceiling
+Матовая краска для потолка</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 601,86 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 71 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1301010003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1301010003</div>
+        <h3>Interior Ceiling
+Матовая краска для потолка</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 665,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 86 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1301010010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1301010010</div>
+        <h3>Interior Ceiling
+Матовая краска для потолка</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 625,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 142 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1302001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1302001001</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 126,46 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 497 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1302001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1302001003</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 118,11 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 320 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1302001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1302001010</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 8 662,00 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 58 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1302003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1302003001</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 977,01 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 173 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1302003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1302003003</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 706,36 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 78 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1302003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1302003010</div>
+        <h3>Interior 7
+Матовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 518,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 107 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1304001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304001001</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 981,09 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 595 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1304001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304001003</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 716,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 282 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1304001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304001010</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 544,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 233 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1304003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304003001</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 833,66 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 190 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1304003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304003003</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 308,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 141 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1304003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1304003010</div>
+        <h3>Interior Bath&Kitchen 7
+Влагостойкая матовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 413,14 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 58 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1305001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305001001</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для кухни и ванной</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 981,09 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 285 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1305001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305001003</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 716,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 116 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1305001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305001010</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 544,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 134 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1305003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305003001</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 833,66 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 210 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1305003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305003003</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 308,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 24 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1305003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1305003010</div>
+        <h3>Interior Bath&Kitchen 20
+Влагостойкая полуматовая краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 413,14 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 11 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1303001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303001001</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 860,10 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 402 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1303001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303001003</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 401,36 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 228 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1303001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303001010</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 301,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 99 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1303003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303003001</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 696,41 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 67 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1303003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303003003</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 928,61 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 38 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1303003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1303003010</div>
+        <h3>Interior Kids&Bedroom
+Матовая краска для спален и детских комнат</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 355,80 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 83 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1306001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306001001</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 163,06 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 292 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1306001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306001003</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 220,80 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 202 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1306001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306001010</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 8 946,66 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 99 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1306003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306003001</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 988,20 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 63 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1306003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306003003</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 737,89 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 33 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1306003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1306003010</div>
+        <h3>Interior Wallpaper
+Матовая краска для обоев</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 604,66 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 34 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1308001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1308001003</div>
+        <h3>Facade Standart Aqua
+Атмосферостойкая фасадная краска</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 836,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 112 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1308001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1308001010</div>
+        <h3>Facade Standart Aqua
+Атмосферостойкая фасадная краска</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 879,16 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 111 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1308003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1308003003</div>
+        <h3>Facade Standart Aqua
+Атмосферостойкая фасадная краска</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 411,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 71 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1308003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1308003010</div>
+        <h3>Facade Standart Aqua
+Атмосферостойкая фасадная краска</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 697,80 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 52 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1309001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1309001003</div>
+        <h3>Facade Silicon Aqua
+Водооталкивающая фасадная краска</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 465,81 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 86 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1309001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1309001010</div>
+        <h3>Facade Silicon Aqua
+Водооталкивающая фасадная краска</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 9 627,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 41 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1309003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1309003003</div>
+        <h3>Facade Silicon Aqua
+Водооталкивающая фасадная краска</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 946,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 32 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1309003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1309003010</div>
+        <h3>Facade Silicon Aqua
+Водооталкивающая фасадная краска</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 8 184,16 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 17 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1314001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1314001001</div>
+        <h3>Protect Floor Aqua
+Полуматовая эмаль для пола</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 439,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 32 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1314001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1314001010</div>
+        <h3>Protect Floor Aqua
+Полуматовая эмаль для пола</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 11 074,55 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 86 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1314003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1314003001</div>
+        <h3>Protect Floor Aqua
+Полуматовая эмаль для пола</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 224,06 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 365 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1314003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1314003010</div>
+        <h3>Protect Floor Aqua
+Полуматовая эмаль для пола</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 9 413,31 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 34 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1313001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1313001001</div>
+        <h3>Protect Doors&Windows Aqua
+Полуматовая эмаль для окон и дверей</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 988,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 141 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1313003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1313003001</div>
+        <h3>Protect Doors&Windows Aqua
+Полуматовая эмаль для окон и дверей</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 988,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 782 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1312001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312001001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 304 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1312001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312001003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 63 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1312001005.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312001005</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 639,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 57 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1312003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312003001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 159 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1312003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312003003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 193 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1312003005.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312003005</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 639,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 68 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЗЕЛЕНЫЙ RAL 6005</div>
+        <div class="product-image"><img src="foto/S1312605001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312605001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+ЗЕЛЕНЫЙ RAL 6005</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 141 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЗЕЛЕНЫЙ RAL 6005</div>
+        <div class="product-image"><img src="foto/S1312605003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312605003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+ЗЕЛЕНЫЙ RAL 6005</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 26 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЧЕРНЫЙ RAL 9005</div>
+        <div class="product-image"><img src="foto/S1312905001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312905001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+ЧЕРНЫЙ RAL 9005</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 80 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЧЕРНЫЙ RAL 9005</div>
+        <div class="product-image"><img src="foto/S1312905003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312905003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+ЧЕРНЫЙ RAL 9005</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 49 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">СЕРЫЙ RAL 7004</div>
+        <div class="product-image"><img src="foto/S1312704001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312704001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+СЕРЫЙ RAL 7004</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 56 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">СЕРЫЙ RAL 7004</div>
+        <div class="product-image"><img src="foto/S1312704003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312704003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+СЕРЫЙ RAL 7004</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 12 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">КОРИЧНЕВЫЙ RAL 8017</div>
+        <div class="product-image"><img src="foto/S1312817001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312817001</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+КОРИЧНЕВЫЙ RAL 8017</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 569,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 74 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">КОРИЧНЕВЫЙ RAL 8017</div>
+        <div class="product-image"><img src="foto/S1312817003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1312817003</div>
+        <h3>Protect Metal
+Глянцевая эмаль 3 в 1
+КОРИЧНЕВЫЙ RAL 8017</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 346,25 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 21 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1315001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1315001001</div>
+        <h3>Protect Universal
+Полуматовая универсальная эмаль</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 189,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 270 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1315003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1315003001</div>
+        <h3>Protect Universal
+Полуматовая универсальная эмаль</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 189,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 200 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1317003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1317003001</div>
+        <h3>Wood Protect
+Лессирующий антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 233,21 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 170 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1317003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1317003003</div>
+        <h3>Wood Protect
+Лессирующий антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 416,00 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 40 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1317003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1317003010</div>
+        <h3>Wood Protect
+Лессирующий антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 9 489,56 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 110 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1316000001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1316000001</div>
+        <h3>Wood Façade Aqua Primer
+Грунтовочный антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 786,90 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 236 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1316000003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1316000003</div>
+        <h3>Wood Façade Aqua Primer
+Грунтовочный антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 177,70 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 130 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1316000010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1316000010</div>
+        <h3>Wood Façade Aqua Primer
+Грунтовочный антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 049,16 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 108 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1320001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320001001</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 624,64 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 198 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1320001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320001003</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 497,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 275 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1320001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320001010</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 12 494,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 181 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1320003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320003001</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 380,64 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 277 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1320003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320003003</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 823,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 196 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1320003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1320003010</div>
+        <h3>Wood Façade Acryl 20
+Полуматовая краска по дереву</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 10 621,11 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 107 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1321001001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321001001</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 624,64 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 8 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1321001003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321001003</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 497,74 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 22 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1321001010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321001010</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 12 494,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 26 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1321003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321003001</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 380,64 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 187 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1321003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321003003</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 823,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 114 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1321003010.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1321003010</div>
+        <h3>Wood Façade Acryl 50
+Полуглянцевая краска по дереву</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 10 621,11 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 99 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1318003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1318003001</div>
+        <h3>Laquer ECO
+Полуглянцевый лак</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 995,31 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 446 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1319003001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1319003001</div>
+        <h3>Laquer Parquet Strong
+Высокоглянцевый износостойкий лак</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 426,39 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 253 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1319003003.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1319003003</div>
+        <h3>Laquer Parquet Strong
+Высокоглянцевый износостойкий лак</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 291,96 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 72 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1200000901.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1200000901</div>
+        <h3>talaalmi
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 1.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 443,26 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 408 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1200000905.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1200000905</div>
+        <h3>talaalmi
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 5.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 873,71 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 56 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1200000910.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1200000910</div>
+        <h3>talaalmi
+Грунтовка-концентрат</h3>
+        <div class="volume">Объем: 10.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 405,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 61 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1201010001.jpg" alt="Фото"></div>
+        <div class="brand">Арт: S1201010001</div>
+        <h3>hehku
+Краска для потолка глубокоматовая белоснежная</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 919,06 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 492 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1201010003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1201010003</div>
+        <h3>hehku
+Краска для потолка глубокоматовая белоснежная</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 544,71 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 339 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1201010010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1201010010</div>
+        <h3>hehku
+Краска для потолка глубокоматовая белоснежная</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 069,90 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 119 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1202001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202001001</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 320,04 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 259 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1202001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202001003</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 423,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 222 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1202001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202001010</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 17 842,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 39 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1202003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202003001</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 971,31 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 85 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1202003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202003003</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 459,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 40 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1202003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1202003010</div>
+        <h3>jooga
+Глубокоматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 15 166,64 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 61 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1203001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203001001</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 791,36 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 336 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1203001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203001003</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 959,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 306 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1203001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203001010</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 13 775,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 65 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1203003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203003001</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 521,95 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 233 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1203003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203003003</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 215,10 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 79 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1203003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1203003010</div>
+        <h3>vadelma
+Матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 11 709,96 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 33 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1204001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204001001</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 552,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 257 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1204001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204001003</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 070,91 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 289 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1204001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204001010</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 19 640,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 147 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1204003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204003001</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 170,59 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 137 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1204003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204003003</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 010,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 97 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1204003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1204003010</div>
+        <h3>rytmi 7
+Влагостойкая матовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 16 694,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 20 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1205001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205001001</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 552,85 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 53 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1205001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205001003</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 070,91 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 35 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1205001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205001010</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 19 640,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 42 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1205003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205003001</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 170,59 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 94 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1205003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205003003</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 010,54 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 68 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1205003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1205003010</div>
+        <h3>rytmi 20
+Влагостойкая полуматовая интерьерная краска для стен и потолков</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 16 694,69 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 46 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1206001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206001001</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 514,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 126 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1206001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206001003</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 193,75 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 36 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1206001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206001010</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 11 649,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 55 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1206003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206003001</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 287,10 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 210 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1206003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206003003</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 564,44 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 30 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1206003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1206003010</div>
+        <h3>kuori
+Универсальная атмосферостойкая краска для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 9 902,34 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 41 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1207001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207001001</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 268,19 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 1 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1207001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207001003</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 279,95 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 5 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1207001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207001010</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 17 444,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 98 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1207003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207003001</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 927,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 28 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1207003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207003003</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 338,51 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 178 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1207003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1207003010</div>
+        <h3>kesto
+Грязеотталкивающая краска для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 14 828,09 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 14 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1211000001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1211000001</div>
+        <h3>kaiku
+Грунтовочный 
+антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 196,61 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 133 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1211000003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1211000003</div>
+        <h3>kaiku
+Грунтовочный 
+антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 3 312,30 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 101 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        
+        <div class="product-image"><img src="foto/S1211000010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1211000010</div>
+        <h3>kaiku
+Грунтовочный 
+антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 9 200,84 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 42 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1212001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212001001</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 280,39 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 71 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1212001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212001003</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 313,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 103 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1212001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212001010</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 17 537,50 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 171 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1212003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212003001</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 937,76 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 226 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1212003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212003003</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 366,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 216 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1212003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1212003010</div>
+        <h3>karsikko 7
+Матовая краска
+для фасадов</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 14 907,39 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 140 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1216003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1216003001</div>
+        <h3>suojaa
+Защитное масло
+для террас и садовой мебели</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 456,89 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 395 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1216003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1216003003</div>
+        <h3>suojaa
+Защитное масло
+для террас и садовой мебели</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 034,14 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 9 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1216003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1216003010</div>
+        <h3>suojaa
+Защитное масло
+для террас и садовой мебели</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 11 203,66 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 23 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1215001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215001001</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 326,14 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 106 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1215001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215001003</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 6 441,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 157 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1215001010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215001010</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 17 893,34 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 27 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1215003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215003001</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 977,41 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 155 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1215003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215003003</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 475,76 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 91 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1215003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1215003010</div>
+        <h3>sketsi
+Полуматовый кроющий
+антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 15 209,34 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 76 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1214003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1214003001</div>
+        <h3>lusto
+Лессирующий 
+антисептик</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 771,04 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 190 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1214003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1214003003</div>
+        <h3>lusto
+Лессирующий 
+антисептик</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 4 904,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 167 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1214003010.png" alt="Фото"></div>
+        <div class="brand">Арт: S1214003010</div>
+        <h3>lusto
+Лессирующий 
+антисептик</h3>
+        <div class="volume">Объем: 9.0 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 13 623,34 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 120 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1213003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1213003001</div>
+        <h3>Lehti 7
+Матовый лак для стен
+и потолков</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 744,60 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 276 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1213003005.png" alt="Фото"></div>
+        <div class="brand">Арт: S1213003005</div>
+        <h3>Lehti 7
+Матовый лак для стен
+и потолков</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 379,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 195 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1217003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1217003001</div>
+        <h3>tanssi 20
+Износостойкий полуматовый лак для полов и лестниц</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 859,49 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 508 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1217003005.png" alt="Фото"></div>
+        <div class="brand">Арт: S1217003005</div>
+        <h3>tanssi 20
+Износостойкий полуматовый лак для полов и лестниц</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 7 867,99 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 261 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1208001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208001001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ
+по ржавчине</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 275 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1208001003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208001003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ
+по ржавчине</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 141 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1208003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208003001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ
+по ржавчине</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 248 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1208003003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208003003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ
+по ржавчине</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 84 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЗЕЛЕНЫЙ RAL 6005</div>
+        <div class="product-image"><img src="foto/S1208605001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208605001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+ЗЕЛЕНЫЙ RAL 6005</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 243 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЗЕЛЕНЫЙ RAL 6005</div>
+        <div class="product-image"><img src="foto/S1208605003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208605003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+ЗЕЛЕНЫЙ RAL 6005</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 142 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЧЕРНЫЙ RAL 9005</div>
+        <div class="product-image"><img src="foto/S1208905001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208905001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+ЧЕРНЫЙ RAL 9005</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 329 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">ЧЕРНЫЙ RAL 9005</div>
+        <div class="product-image"><img src="foto/S1208905003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208905003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+ЧЕРНЫЙ RAL 9005</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 105 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">СЕРЫЙ RAL 7004</div>
+        <div class="product-image"><img src="foto/S1208704001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208704001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+СЕРЫЙ RAL 7004</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 199 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">СЕРЫЙ RAL 7004</div>
+        <div class="product-image"><img src="foto/S1208704003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208704003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+СЕРЫЙ RAL 7004</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 253 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">КОРИЧНЕВЫЙ RAL 8017</div>
+        <div class="product-image"><img src="foto/S1208817001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208817001</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+КОРИЧНЕВЫЙ RAL 8017</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 991,65 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 100 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-other">КОРИЧНЕВЫЙ RAL 8017</div>
+        <div class="product-image"><img src="foto/S1208817003.png" alt="Фото"></div>
+        <div class="brand">Арт: S1208817003</div>
+        <h3>mahtava
+Грунт-эмаль 3 в 1 для работ по ржавчине
+КОРИЧНЕВЫЙ RAL 8017</h3>
+        <div class="volume">Объем: 2.7 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 5 514,40 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 125 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1209001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1209001001</div>
+        <h3>ruusu
+Износостойкая полуглянцевая эмаль для пола и лестниц</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 087,21 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 540 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1209001005.png" alt="Фото"></div>
+        <div class="brand">Арт: S1209001005</div>
+        <h3>ruusu
+Износостойкая полуглянцевая эмаль для пола и лестниц</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 8 832,80 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 102 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1209003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1209003001</div>
+        <h3>ruusu
+Износостойкая полуглянцевая эмаль для пола и лестниц</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 2 087,21 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 570 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1209003005.png" alt="Фото"></div>
+        <div class="brand">Арт: S1209003005</div>
+        <h3>ruusu
+Износостойкая полуглянцевая эмаль для пола и лестниц</h3>
+        <div class="volume">Объем: 4.5 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 8 832,80 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 84 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-a">База А</div>
+        <div class="product-image"><img src="foto/S1210001001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1210001001</div>
+        <h3>kausi
+Универсальная полуматовая эмаль</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 586,00 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 454 шт.</div>
+    </div>
+    
+    <div class="product-card">
+        <div class="base-badge base-c">База С</div>
+        <div class="product-image"><img src="foto/S1210003001.png" alt="Фото"></div>
+        <div class="brand">Арт: S1210003001</div>
+        <h3>kausi
+Универсальная полуматовая эмаль</h3>
+        <div class="volume">Объем: 0.9 л.</div>
+        <div class="price"><span class="label-text">РРЦ:</span> 1 586,00 ₽</div>
+        <div class="stock in-stock"><span class="label-text">Остаток:</span> 140 шт.</div>
+    </div>
+    
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102601 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 FT VIOLET Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 10 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101801 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 KS YELLOW Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 59 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102301 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 LS DARK GREEN Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 15 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101701 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 LT LIGHT GREEN Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 57 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102401 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 MM MAGENTA Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 230 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101901 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 MS DARK BLUE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 15 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102201 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 MT LIGHT BLUE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 72 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102501 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 PT ORANGE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 76 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101601 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 RS RED Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 6 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102101 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 RT YELLOW OXIDE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 4 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102701 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 ST BROWN OXIDE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 24 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101501 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 TT BLACK Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 15 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102901 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 US ORANGE YELLOW Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 10 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102001 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 VT RED OXIDE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 580 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C101401 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 XT WHITE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 323 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: C102801 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATINT 1000 ZT YELLOW CITRON Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 263 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200201 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SD BRIGHT YELLOW Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 58 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200301 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SE VIOLET Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 102 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200401 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SJ WHITE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 336 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200501 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SM PURE YELLOW Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 385 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200601 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SN ORANGE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 104 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200101 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SO PINK Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 25 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200701 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SR NAPHTOL RED Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 291 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200801 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SS BLUE Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 257 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A200901 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU ST BLACK Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 13 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A201001 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SV DARK YELLOW Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 272 шт.</div>
+        </div>
+        
+        <div class="product-card">
+            <div class="product-image"><span style="color:#aaa;">Колорант</span></div>
+            <div class="brand">Арт: A201101 | КОЛОРАНТ</div>
+            <h3>COLORANT TALATU SW VIOLET  1L Колорант,</h3>
+            <div class="volume"></div>
+            <div class="price"></div>
+            <div class="stock in-stock"><span class="label-text">Остаток:</span> 100 шт.</div>
+        </div>
+        
+        </div>
+    </div>
+    <script>
+        function filterCards() {
+            let input = document.getElementById('searchInput');
+            let filter = input.value.toUpperCase();
+            let grid = document.getElementById('grid');
+            let cards = grid.getElementsByClassName('product-card');
+            for (let i = 0; i < cards.length; i++) {
+                let text = cards[i].innerText || cards[i].textContent;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
